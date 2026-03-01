@@ -1,0 +1,888 @@
+@import 'timeline.css';
+
+:root {
+  /* Color Palette - Strict Black, White, Red */
+  --color-black: #1a1a1a;
+  --color-white: #FFFFFF;
+  --color-red: #D00000;
+  --color-gray: #f0f0f0;
+  /* Light gray for backgrounds/borders */
+  --text-main: #1a1a1a;
+  --bg-main: #FFFFFF;
+
+  /* Typography */
+  --font-main: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  --font-logo: "Impact", "Arial Black", sans-serif;
+
+  /* Spacing */
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 32px;
+  --spacing-xl: 64px;
+
+  /* Layout */
+  --header-height: 80px;
+  --max-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--bg-main);
+  overflow-x: hidden;
+  /* Fix: Prevent horizontal scroll (root level) */
+  width: 100%;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  /* Fix: Prevent horizontal scroll (body level) */
+  width: 100%;
+  position: relative;
+  /* Ensure overflow hidden context works */
+}
+
+body> :not(header) {
+  animation: pageFadeIn 1.2s ease-out 0.2s backwards;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+a {
+  color: var(--text-main);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-red);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Utilities */
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-red {
+  color: var(--color-red);
+}
+
+.bg-black {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.bg-white {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  border: 2px solid var(--text-main);
+  color: var(--text-main);
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  background: transparent;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--color-red);
+  border-color: var(--color-red);
+  color: var(--color-white);
+}
+
+.btn-primary {
+  background-color: var(--color-red);
+  border-color: var(--color-red);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--color-red);
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: rgba(30, 30, 30, 0.85);
+  /* Lighter Black (Dark Gray) */
+  backdrop-filter: blur(5px);
+  z-index: 2002;
+  /* Fix: Ensure header stays above mobile nav (1900) */
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--color-gray);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+
+.logo {
+  font-family: var(--font-logo);
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: var(--color-white);
+  /* White text for logo */
+  display: flex;
+  /* Ensure alignment */
+  align-items: center;
+}
+
+.logo img {
+  /* No filter needed for white logo on black header */
+  filter: none;
+}
+
+.logo span {
+  color: var(--color-red);
+}
+
+.logo-text-ja {
+  font-size: 1.1rem;
+  margin-left: 12px;
+  color: var(--color-white) !important;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-lg);
+}
+
+nav a {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  color: var(--color-white);
+  /* White links */
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-red);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Seasonal Banner */
+.seasonal-banner {
+  position: fixed;
+  top: var(--header-height);
+  /* 80px */
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--text-main);
+  text-align: center;
+  padding: 10px var(--spacing-md);
+  z-index: 1800;
+  /* Below mobile nav overlay (1900) and header (2002) */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border-bottom: 5px solid var(--color-red);
+  transition: all 0.3s ease;
+}
+
+.seasonal-banner a {
+  color: var(--text-main);
+  font-weight: bold;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  position: static;
+  /* Override default nav a relative positioning */
+  transition: color 0.3s ease;
+}
+
+.seasonal-banner a::after {
+  display: none;
+  /* Removed hover underline for this specific banner */
+}
+
+.seasonal-banner a:hover {
+  text-decoration: none;
+  color: var(--color-red);
+}
+
+/* Make sure container spacing accounts for banner when visible
+   The easiest way is to push the first element but since the banner is conditionally visible,
+   an easier approach is to just let it overlay slightly, or we handle it via JS adding a padding class.
+   For now, a simple overlay is fine since section padding is 80px from top already. */
+
+/* Dropdown Navigation */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(30, 30, 30, 0.85);
+  /* Matches Header */
+  min-width: 200px;
+  list-style: none;
+  padding: var(--spacing-sm) 0;
+  display: none;
+  flex-direction: column;
+  gap: 0;
+  border-top: 2px solid var(--color-red);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: var(--color-white);
+  /* White text */
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
+
+.dropdown-menu a::after {
+  display: none;
+}
+
+/* Typography styles */
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-top: 30px;
+  margin-bottom: var(--spacing-md);
+  border-left: 5px solid var(--color-red);
+  padding-left: var(--spacing-md);
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-top: 30px;
+  margin-bottom: var(--spacing-lg);
+  border-left: 5px solid var(--color-red);
+  padding-left: var(--spacing-md);
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Section Spacing */
+section {
+  padding: 80px 0;
+}
+
+/* SNS Icons - Uniform Sizing & Color */
+.sns-icon {
+  height: 48px;
+  width: 48px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  /* NO filter needed for black icons on white if original is black, 
+     but assuming original might be black. 
+     If original is white, we need invert. 
+     Safe bet: if original was black and we had invert(1) for dark mode, remove invert.
+     Let's assume we want them BLACK now. */
+}
+
+.sns-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Font Awesome Icon to match */
+.fa-brands {
+  font-size: 56px;
+  /* Increased from 48px */
+  color: var(--text-main);
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+/* SNS Links Container */
+.sns-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  flex-wrap: wrap;
+  /* Safety wrap */
+  justify-content: center;
+  /* Center items */
+}
+
+.sns-links a {
+  color: #000;
+  text-decoration: none;
+  padding: 5px;
+  /* Add some clickable area */
+}
+
+/* SNS Icon Images (SVG) */
+.sns-icon-img {
+  height: 44px;
+  /* Increased from 32px */
+  width: auto;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+  filter: brightness(0);
+}
+
+.sns-icon-img-small {
+  height: 28px;
+  /* Increased from 22px */
+  width: auto;
+  vertical-align: middle;
+  filter: brightness(0);
+}
+
+.sns-links a i {
+  transition: transform 0.2s ease;
+}
+
+.sns-links a:hover .sns-icon-img,
+.sns-links a:hover i {
+  transform: scale(1.15);
+}
+
+.sns-button-list {
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+  /* Increased gap */
+  width: 100%;
+}
+
+.sns-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  /* Increased gap */
+  padding: 18px;
+  /* Increased from 14px */
+  border-radius: 10px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--text-main);
+  transition: all 0.2s ease;
+  font-size: 1.1rem;
+  /* Increased from 1rem */
+}
+
+.sns-btn i {
+  font-size: 26px;
+  /* Increased from 20px */
+  width: 30px;
+  /* Increased from 24px */
+  text-align: center;
+}
+
+.sns-btn:hover {
+  background-color: #f9f9f9;
+  border-color: var(--color-red);
+}
+
+@media (max-width: 768px) {
+  .sns-button-list {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .sns-links {
+    gap: 20px;
+  }
+
+  /* Resetting old Font Awesome specific styles */
+  .sns-links a {
+    width: auto;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero Section */
+#hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('../images/top.jpg') no-repeat center center/cover;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  #hero {
+    height: 60vh;
+    /* Reduces overwhelming vertical height on mobile */
+    min-height: 400px;
+  }
+}
+
+/* Hero Logo - Invert color for white background if it's a white logo */
+.hero-logo {
+  max-width: 80%;
+  width: 500px;
+  height: auto;
+  filter: invert(1);
+  /* Turns white logo to black */
+}
+
+/* Utility Classes */
+/* Scroll Animation Classes */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Apply to elements */
+/* Apply to elements - These will be added via HTML classes */
+
+/* Delay animations slightly for staggered effect if needed, but keeping simple for now */
+
+/* Premium Hover Effects */
+.card:hover,
+.work-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  /* Lighter shadow for light theme */
+  transition: all 0.3s ease;
+}
+
+.youtube-banner-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.youtube-banner-container a,
+.youtube-banner-container a:hover,
+.youtube-banner-container a:hover h3,
+.youtube-banner-container a:hover span,
+.youtube-banner-container a:hover p {
+  color: inherit !important;
+}
+
+.youtube-banner-container a:hover span:last-child {
+  background-color: #ff0000 !important;
+  color: #fff !important;
+}
+
+.btn:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 5px 15px rgba(208, 0, 0, 0.3);
+}
+
+/* Footer */
+/* Footer */
+footer {
+  background-color: var(--color-gray);
+  /* Slight off-white/gray */
+  padding: 60px 0;
+  border-top: none;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+/* =========================================
+   Mobile Hamburger Menu
+   ========================================= */
+.hamburger-menu {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 2000;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 40px;
+  height: 40px;
+}
+
+.hamburger-menu span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-white);
+  /* Fixed: Visible on dark header */
+  border-radius: 0;
+  /* Fix: Sharp edges, not handwritten style */
+  transition: all 0.3s ease;
+}
+
+/* Hide mobile nav heavily on desktop */
+#mobile-nav {
+  display: none;
+}
+
+.mobile-only {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: block !important;
+  }
+
+  .hamburger-menu {
+    display: flex;
+    /* Removed position: fixed to allow flexbox centering in header */
+    z-index: 2001;
+    /* Keep high priority */
+  }
+
+  /* Hide default nav on mobile */
+  /* Hide default nav on mobile */
+  header nav {
+    display: none;
+  }
+
+  /* =========================================
+     Mobile Navigation (Separate Structure)
+     ========================================= */
+  #mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(20, 20, 20, 0.90);
+    backdrop-filter: blur(10px);
+    z-index: 1900;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 120px;
+    /* Reduced from 100px */
+    padding-bottom: 20px;
+    /* Reduced from 50px */
+    overflow-y: auto;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  /* Fix: Prevent overlapping logo text on small screens */
+  @media (max-width: 480px) {
+    .logo-text-ja {
+      display: block;
+      /* Ensure visible */
+      font-size: 0.9rem;
+      /* Smaller than original (1.1) but visible */
+      margin-left: 8px;
+    }
+  }
+
+  #mobile-nav.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #mobile-nav ul {
+    list-style: none;
+    text-align: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    /* Ensure it's flex */
+    flex-direction: column;
+    /* Fix: Stack items vertically */
+    gap: 0;
+    /* Fix: Remove inherited gap from global nav ul */
+  }
+
+  #mobile-nav li {
+    margin: 10px 0;
+    /* Reduced from 15px */
+    width: 100%;
+  }
+
+  #mobile-nav a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 1.1rem;
+    /* Reverted to 1.1rem */
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    padding: 5px 0;
+    /* Add slight padding for touch target */
+  }
+
+  /* Prevent body scroll */
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  /* Hamburger Animation */
+  /* Hamburger Animation - Perfect Center Cross */
+  .hamburger-menu {
+    position: relative;
+    /* Context for absolute positioning */
+  }
+
+  .hamburger-menu span {
+    position: absolute;
+    left: 10%;
+    /* 4px padding-ish */
+    width: 80%;
+    /* 32px width inside 40px box */
+    height: 3px;
+    background-color: var(--color-white);
+    border-radius: 0;
+    transition: all 0.3s ease;
+  }
+
+  /* Default State (Hamburger) */
+  .hamburger-menu span:nth-child(1) {
+    top: 25%;
+  }
+
+  .hamburger-menu span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .hamburger-menu span:nth-child(3) {
+    bottom: 25%;
+  }
+
+  /* Active State (X Cross) */
+  .hamburger-menu.active span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.active span:nth-child(3) {
+    top: 50%;
+    /* Center it first */
+    bottom: auto;
+    /* Reset bottom */
+    transform: translateY(-50%) rotate(-45deg);
+  }
+}
+
+/* Circles Navigation (Activity Page) */
+.circles-nav {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  /* Wrap on smaller screens if row */
+}
+
+@media (max-width: 768px) {
+  .circles-nav {
+    flex-direction: column;
+    /* Vertical stack on mobile */
+    align-items: stretch;
+    /* Full width buttons */
+  }
+
+  .circles-nav .btn {
+    text-align: center;
+    /* Ensure text is centered */
+  }
+}
+
+/* =========================================
+   Circles Grid
+   =========================================*/
+.circles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* Fix: Align buttons to bottom */
+.circles-grid .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.circles-grid .card .btn {
+  margin-top: auto;
+  align-self: center;
+}
+
+@media (max-width: 768px) {
+  .circles-grid {
+
+    /* On mobile, user felt 1col stack was "too vertically long" */
+    /* Let's keep them stacked but reduce padding/gap to make it compact */
+    .circles-grid .card {
+      padding: 20px !important;
+      /* Override inline style */
+    }
+  }
+}
+
+/* =========================================
+ Map Modal (Enlargement)
+ ========================================= */
+.map-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 3000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  cursor: zoom-out;
+}
+
+.map-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.map-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.map-modal.active img {
+  transform: scale(1);
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #fff;
+  font-size: 40px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.enlargeable-map {
+  transition: transform 0.3s ease;
+}
+
+.map-container:hover .enlargeable-map {
+  transform: scale(1.02);
+}

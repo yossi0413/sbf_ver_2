@@ -1,0 +1,143 @@
+/* =========================================
+   Timeline Layout (Activity Page)
+   ========================================= */
+.timeline-section {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline-items {
+    position: relative;
+    width: 100%;
+}
+
+/* Flex Container for each item */
+.timeline-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 50px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Date Label (Left Column) */
+.timeline-date-label {
+    flex-shrink: 0;
+    width: 80px;
+    text-align: right;
+    margin-right: 20px;
+    font-weight: bold;
+    color: #666;
+    font-size: 1.6rem;
+    padding-top: 0;
+    line-height: 1.2;
+}
+
+/* Marker */
+.timeline-marker {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--color-red);
+    z-index: 2;
+    margin-right: 30px;
+    border: 3px solid var(--bg-main);
+    margin-top: 5px;
+}
+
+.timeline-marker.invisible {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+/* Content */
+.timeline-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.3;
+    display: block;
+    margin-top: 5px;
+    /* Align with marker */
+}
+
+.timeline-desc {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-top: 5px;
+}
+
+/* Vertical Line */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    bottom: -55px;
+    left: 114px;
+    /* 80 + 20 + 15 - 1 = 114 */
+    width: 2px;
+    background-color: #ccc;
+    z-index: 0;
+}
+
+.timeline-item.no-line::before {
+    display: none;
+}
+
+.timeline-item:last-child::before {
+    display: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .timeline-item {
+        flex-direction: column;
+        margin-bottom: 40px;
+    }
+
+    .timeline-date-label {
+        width: 100%;
+        text-align: left;
+        margin-right: 0;
+        margin-bottom: 5px;
+        font-size: 1.5rem;
+        color: var(--color-red);
+    }
+
+    .timeline-marker {
+        position: absolute;
+        left: 0;
+        top: 36px;
+        /* Align slightly above/with title */
+        margin-right: 0;
+        margin-top: 0;
+    }
+
+    .timeline-content {
+        padding-left: 45px;
+        /* Spacing for the marker (30px + 15px) */
+        width: 100%;
+    }
+
+    .timeline-title {
+        font-size: 1.4rem;
+        margin-top: 0;
+    }
+
+    .timeline-item::before {
+        left: 14px;
+        /* Center of marker */
+        top: 45px;
+        bottom: -40px;
+    }
+}

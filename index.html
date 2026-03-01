@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBF - 中日本学生放送連盟</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="SBF（中日本学生放送連盟）は、名古屋大学を拠点に活動する放送サークルです。">
+    <!-- Font Awesome (for icons, if needed, using CDN for now as placeholder or could use SVG) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="./" class="logo">
+                <img src="images/logo_toumei_white.svg" alt="SBF Logo" style="height: 50px; width: auto;">
+                <span class="logo-text-ja">中日本学生放送連盟</span>
+            </a>
+            <button class="hamburger-menu" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="./">ホーム</a></li>
+                    <li class="dropdown">
+                        <a href="activity/">活動</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="circles/announce/">アナウンス研究会</a></li>
+                            <li><a href="circles/produce/">プロデュース研究会</a></li>
+                            <li><a href="circles/technical/">技術研究会</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="memory/">記録</a></li>
+                    <li><a href="guide/recruit/">入盟案内</a></li>
+                    <li><a href="guide/request/">ご依頼</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation (New Structure) -->
+    <nav id="mobile-nav">
+        <ul>
+            <li><a href="./">ホーム</a></li>
+            <li><a href="activity/">活動</a></li>
+            <li><a href="circles/announce/">アナウンス研究会</a></li>
+            <li><a href="circles/produce/">プロデュース研究会</a></li>
+            <li><a href="circles/technical/">技術研究会</a></li>
+            <li><a href="memory/">記録</a></li>
+            <li><a href="guide/recruit/">入盟案内</a></li>
+            <li><a href="guide/request/">ご依頼</a></li>
+        </ul>
+    </nav>
+
+    <!-- Seasonal Banner -->
+    <div class="seasonal-banner" style="display: none;">
+        <a href="guide/recruit/">新入生・入盟についてはこちら <i class="fa-solid fa-chevron-right"></i></a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <!-- Placeholder overlay for readibility if image is bright, but strict black background preferred if no image -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.3);">
+        </div>
+
+        <div class="container" style="position: relative; z-index: 1; text-align: center;">
+            <img src="images/logo_toumei_white.svg" alt="SBF" class="hero-logo">
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview">
+        <div class="container">
+            <h2>概要</h2>
+            <div class="content">
+                <!-- Desktop View: Detailed Text -->
+                <div class="desktop-only">
+                    <p style="margin-bottom: 20px;">
+                        SBF（中日本学生放送連盟）は、名古屋大学を拠点に活動している放送サークルです。
+                    </p>
+                    <p style="margin-bottom: 20px;">
+                        バラエティ番組・ドラマ・旅番組といった映像作品から、ラジオ番組、ミュージックビデオまで、ジャンルにとらわれず幅広い作品を制作しています。<br>
+                        アナウンス、カメラ、映像編集、音声編集、企画、脚本など、「<strong>やってみたい！</strong>」と思ったことには、<strong>なんでも挑戦できます!!</strong>
+                    </p>
+                    <p style="margin-bottom: 20px;">
+                        SBFはインカレサークルのため、名古屋大学だけでなく、名城大学、南山大学、岐阜大学、三重大学など、東海圏のさまざまな大学から、個性豊かなメンバーが集まり、楽しく和気あいあいと活動しています。
+                    </p>
+                    <p>
+                        また1953年に創立されたSBFは、<span id="current-year">2026</span>年で創立<span
+                            id="anniversary-year">73</span>年目を迎える、長い伝統を持つサークルです。
+                    </p>
+                    <p style="margin-top: 35px;">
+                        <small>＊名称については、名古屋大学の中では放文研（名古屋大学放送文化研究会）とも呼ばれています。</small>
+                    </p>
+                </div>
+
+                <!-- Mobile View (SP): Summarized Text -->
+                <div class="mobile-only">
+                    <p>SBF（中日本学生放送連盟）は、1953年創立の歴史ある放送サークルです。名古屋大学を拠点に、東海圏の様々な大学から集まったメンバーが、番組制作やラジオ、MVなど、自分の「やりたい」に全力で挑戦できる場所です。<br>
+                        <small>＊名称については、名古屋大学の中では放文研（名古屋大学放送文化研究会）とも呼ばれています。</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Circles / Activities Introduction -->
+    <section id="circles">
+        <div class="container">
+            <h2>各研究会紹介</h2>
+            <div class="circles-grid">
+
+                <!-- Announce -->
+                <div class="card" style="border: 1px solid #e0e0e0; padding: 30px; text-align: center;">
+                    <h3 style="margin-bottom: 15px;">アナウンス研究会</h3>
+                    <p style="margin-bottom: 20px;">声で伝える楽しさを。<br>ナレーション、フリートーク、朗読など。</p>
+                    <a href="circles/announce/" class="btn">詳細を見る</a>
+                </div>
+
+                <!-- Produce -->
+                <div class="card" style="border: 1px solid #e0e0e0; padding: 30px; text-align: center;">
+                    <h3 style="margin-bottom: 15px;">プロデュース研究会</h3>
+                    <p style="margin-bottom: 20px;">企画を形にする。<br>番組制作の指揮、脚本、演出など。</p>
+                    <a href="circles/produce/" class="btn">詳細を見る</a>
+                </div>
+
+                <!-- Technical -->
+                <div class="card" style="border: 1px solid #e0e0e0; padding: 30px; text-align: center;">
+                    <h3 style="margin-bottom: 15px;">技術研究会</h3>
+                    <p style="margin-bottom: 20px;">映像と音の職人。<br>撮影、編集、ミキシング、機材操作。</p>
+                    <a href="circles/technical/" class="btn">詳細を見る</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Join & Request -->
+    <section id="join-request">
+        <div class="container">
+            <h2>参加・依頼</h2>
+            <div class="circles-grid">
+                <!-- Recruit -->
+                <div class="card"
+                    style="border: 1px solid #e0e0e0; padding: 30px; text-align: center; background-color: var(--color-white);">
+                    <h3 style="margin-bottom: 15px;">入盟案内</h3>
+                    <p style="margin-bottom: 20px;">SBFで「やりたい」に挑戦しよう！<br>新入生や入盟についてのご案内です。</p>
+                    <a href="guide/recruit/" class="btn">詳細を見る</a>
+                </div>
+
+                <!-- Request -->
+                <div class="card"
+                    style="border: 1px solid #e0e0e0; padding: 30px; text-align: center; background-color: var(--color-white);">
+                    <h3 style="margin-bottom: 15px;">ご依頼などについて</h3>
+                    <p style="margin-bottom: 20px;">MC、ナレーション、機材操作など<br>各種ご依頼を承っております。</p>
+                    <a href="guide/request/" class="btn">詳細を見る</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Access -->
+    <section id="access">
+        <div class="container">
+            <h2>アクセス</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 40px;">
+                <div style="flex: 1; min-width: 300px;">
+                    <p style="font-weight: bold; margin-bottom: 10px;">〒464-0814<br>名古屋市千種区不老町
+                        名古屋大学学生会館内</p>
+                    <p style="margin-bottom: 20px;">普段の活動は、学生会館の集会室やサークル棟にある部室で行っています。</p>
+                    <p><strong>最寄り駅:</strong><br>地下鉄名城線 名古屋大学駅 下車<br>3番出口から北へ徒歩3分</p>
+                </div>
+                <div style="flex: 1; min-width: 300px; cursor: pointer;" class="map-container">
+                    <img src="images/map.svg" alt="Access Map" class="enlargeable-map"
+                        style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <p style="color: #666; font-size: 0.8rem; margin-top: 10px; text-align: right;">※クリックで拡大</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SNS Links -->
+    <section id="sns">
+        <div class="container">
+            <h2>SNS</h2>
+            <p style="margin-bottom: 30px;">最新情報や活動の様子はこちらから</p>
+
+            <!-- Desktop View: Icon Grid -->
+            <div class="desktop-only">
+                <div class="sns-links">
+                    <a href="https://x.com/sbf_renmei?s=20" target="_blank" title="X">
+                        <img src="images/x_logo.svg" alt="X" class="sns-icon-img">
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCye3iDlnDlnpYUYk98AFmNw" target="_blank" title="YouTube">
+                        <i class="fa-brands fa-youtube" style="vertical-align: middle;"></i>
+                    </a>
+                    <a href="https://www.instagram.com/sbf_renmei?igsh=MW82azhxNjhtOTZ4" target="_blank"
+                        title="Instagram">
+                        <i class="fa-brands fa-instagram" style="vertical-align: middle;"></i>
+                    </a>
+                    <a href="https://lin.ee/fXKciTn" target="_blank" title="LINE">
+                        <i class="fa-brands fa-line" style="vertical-align: middle;"></i>
+                    </a>
+                    <a href="https://open.spotify.com/show/298nSHt1an4wHGTyWjASQu?si=21dbe95e8b3d4a3a" target="_blank"
+                        title="Spotify">
+                        <i class="fa-brands fa-spotify" style="vertical-align: middle;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile View: Full-width Buttons -->
+            <div class="mobile-only">
+                <div class="sns-button-list">
+                    <a href="https://x.com/sbf_renmei?s=20" target="_blank" class="sns-btn">
+                        <img src="images/x_logo.svg" alt="X" class="sns-icon-img-small"> X
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCye3iDlnDlnpYUYk98AFmNw" target="_blank" class="sns-btn">
+                        <i class="fa-brands fa-youtube"></i> YouTube
+                    </a>
+                    <a href="https://www.instagram.com/sbf_renmei?igsh=MW82azhxNjhtOTZ4" target="_blank"
+                        class="sns-btn">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://lin.ee/fXKciTn" target="_blank" class="sns-btn">
+                        <i class="fa-brands fa-line"></i> LINE
+                    </a>
+                    <a href="https://open.spotify.com/show/298nSHt1an4wHGTyWjASQu?si=21dbe95e8b3d4a3a" target="_blank"
+                        class="sns-btn">
+                        <i class="fa-brands fa-spotify"></i> Spotify
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Embed Section -->
+    <section id="youtube-embed" style="background-color: var(--color-white); padding-top: 0; padding-bottom: 80px;">
+        <div class="container">
+            <h2>制作番組公開中！</h2>
+            <div class="youtube-banner-container"
+                style="max-width: 800px; margin: 0 auto; text-align: left; background-color: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <a href="https://www.youtube.com/channel/UCye3iDlnDlnpYUYk98AFmNw" target="_blank"
+                    style="display: flex; flex-direction: column; text-decoration: none; color: inherit; height: 100%;">
+
+                    <!-- Banner Header -->
+                    <div
+                        style="height: 120px; background: url('images/top.jpg') no-repeat center center/cover; position: relative;">
+                    </div>
+
+                    <!-- Channel Info Section -->
+                    <div style="padding: 20px; display: flex; flex-direction: column; position: relative;">
+
+                        <!-- Icon & Title Row -->
+                        <div
+                            style="display: flex; align-items: flex-end; flex-wrap: wrap; margin-top: -60px; margin-bottom: 20px;">
+                            <img src="images/logo_backwhite.svg" alt="SBF Channel Icon"
+                                style="width: 80px; height: 80px; border-radius: 50%; border: 4px solid #fff; background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); object-fit: contain; z-index: 2;">
+                            <div style="margin-left: 15px; margin-bottom: 5px; flex: 1; min-width: 200px;">
+                                <h3
+                                    style="margin: 0; font-size: 1.8rem; color: #333; line-height: 1.3; padding-top: 10px;">
+                                    SBFチャンネル 中日本学生放送連盟</h3>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div style="font-size: 1rem; color: #555; line-height: 1.6;">
+                            <p style="margin-bottom: 10px;">
+                                名古屋大学を拠点に活動している放送サークル「SBF中日本学生放送連盟（名古屋大学放送文化研究会）」の公式YouTubeチャンネルです。</p>
+                            <p style="margin-bottom: 10px;">
+                                SBFでは、さながら放送局のようにバラエティ・ドラマ・旅番組などの映像番組から、ラジオ番組、ミュージックビデオのような映像作品まで、幅広い作品が日々制作されています。</p>
+                            <p style="margin-bottom: 10px;">制作した番組を順次アップロードしていきます。</p>
+                        </div>
+
+                        <!-- Action Button -->
+                        <div style="margin-top: 15px; text-align: center;">
+                            <span
+                                style="display: inline-block; background-color: #cc0000; color: #fff; padding: 10px 30px; border-radius: 20px; font-weight: bold; font-size: 1rem; transition: background-color 0.2s;"><i
+                                    class="fa-brands fa-youtube"
+                                    style="font-size: 1.2rem; margin-right: 8px; vertical-align: middle; color: #fff;"></i>
+                                チャンネルを見る</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <img src="images/logo.svg" alt="SBF" style="height: 40px; margin: 0 auto 20px; display: block;">
+            <p>&copy; 1953 - 2026 SBF 中日本学生放送連盟.<br>All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

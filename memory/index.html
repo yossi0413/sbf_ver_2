@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>記録 - SBF</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="memory.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="../" class="logo">
+                <img src="../images/logo_toumei_white.svg" alt="SBF Logo" style="height: 50px; width: auto;">
+                <span class="logo-text-ja">中日本学生放送連盟</span>
+            </a>
+            <button class="hamburger-menu" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="../">ホーム</a></li>
+                    <li class="dropdown">
+                        <a href="../activity/">活動</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../circles/announce/">アナウンス研究会</a></li>
+                            <li><a href="../circles/produce/">プロデュース研究会</a></li>
+                            <li><a href="../circles/technical/">技術研究会</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./">記録</a></li>
+                    <li><a href="../guide/recruit/">入盟案内</a></li>
+                    <li><a href="../guide/request/">ご依頼</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation (New Structure) -->
+    <nav id="mobile-nav">
+        <ul>
+            <li><a href="../">ホーム</a></li>
+            <li><a href="../activity/">活動</a></li>
+            <li><a href="../circles/announce/">アナウンス研究会</a></li>
+            <li><a href="../circles/produce/">プロデュース研究会</a></li>
+            <li><a href="../circles/technical/">技術研究会</a></li>
+            <li><a href="./">記録</a></li>
+            <li><a href="../guide/recruit/">入盟案内</a></li>
+            <li><a href="../guide/request/">ご依頼</a></li>
+        </ul>
+    </nav>
+
+    <!-- Seasonal Banner -->
+    <div class="seasonal-banner" style="display: none;">
+        <a href="../guide/recruit/">新入生・入盟についてはこちら <i class="fa-solid fa-chevron-right"></i></a>
+    </div>
+
+    <div class="container" style="padding-top: 120px; padding-bottom: 60px;">
+        <h1>記録</h1>
+        <p style="margin-bottom: 40px;">SBFの活動記録アーカイブ</p>
+
+        <div id="loading" class="text-center">Loading works...</div>
+        <div id="error-message" class="text-center text-red" style="display: none;"></div>
+
+        <div id="works-grid" class="works-grid">
+            <!-- JS renders cards here -->
+        </div>
+    </div>
+
+    <!-- Modal Container -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <button id="modal-close" class="modal-close">&times;</button>
+            <h2 id="modal-title">Title</h2>
+            <p id="modal-date" class="text-gray" style="margin-bottom: 15px;">2024-01-01</p>
+            <div id="modal-description" class="modal-description">
+                <!-- Description content -->
+            </div>
+            <div id="modal-links" class="modal-links">
+                <!-- Links -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 1953 - 2026 SBF 中日本学生放送連盟.<br>All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="memory.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

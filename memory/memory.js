@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Modal Elements
     const modalTitle = document.getElementById('modal-title');
     const modalDate = document.getElementById('modal-date');
+    const modalImageContainer = document.getElementById('modal-image-container');
+    const modalImage = document.getElementById('modal-image');
     const modalDescription = document.getElementById('modal-description');
     const modalLinks = document.getElementById('modal-links');
 
@@ -139,6 +141,17 @@ document.addEventListener('DOMContentLoaded', () => {
     function openModal(work) {
         modalTitle.textContent = work.title;
         modalDate.textContent = work.date || '';
+
+        // Image Rendering
+        if (work.thumbnail) {
+            modalImage.src = work.thumbnail;
+            modalImage.alt = work.title;
+            modalImageContainer.style.display = 'block';
+        } else {
+            modalImage.src = '';
+            modalImage.alt = '';
+            modalImageContainer.style.display = 'none';
+        }
 
         // Secure Description Rendering
         modalDescription.innerHTML = ''; // Clear previous

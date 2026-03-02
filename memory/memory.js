@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 errorEl.style.display = 'block';
             } else {
                 renderWorks(data);
-                showDataSource('works.json (Server)');
+                showDataSource('');
             }
         })
         .catch(err => {
@@ -210,3 +210,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
